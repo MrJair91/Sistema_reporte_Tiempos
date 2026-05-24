@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Gestión de empleados</h1>
+
+<form method="POST" class="card">
+    <label>Nombre</label>
+    <input type="text" name="name" required>
+
+    <label>Correo</label>
+    <input type="email" name="email" required>
+
+    <label>Rol</label>
+    <select name="role" required>
+        <option value="administrador">Administrador</option>
+        <option value="lider">Líder de proyecto</option>
+        <option value="empleado">Empleado</option>
+    </select>
+
+    <label>Contraseña</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Crear empleado</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Rol</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

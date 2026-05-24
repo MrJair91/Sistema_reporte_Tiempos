@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Reporte de Tiempos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('index') }}">Inicio</a>
+
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('projects') }}">Proyectos</a>
+            <a href="{{ url_for('new_report') }}">Nuevo reporte</a>
+            <a href="{{ url_for('reports') }}">Reportes</a>
+
+            {% if session.get('role') == 'administrador' %}
+                <a href="{{ url_for('employees') }}">Empleados</a>
+            {% endif %}
+
+            <a href="{{ url_for('logout') }}">Salir</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Ingresar</a>
+        {% endif %}
+    </nav>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

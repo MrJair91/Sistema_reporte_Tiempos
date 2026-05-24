@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>Sistema de Reporte de Tiempos</h1>
+    <p>
+        Aplicación web para registrar el porcentaje de dedicación de empleados
+        a proyectos activos, validar la suma total del 100% y facilitar reportes
+        administrativos.
+    </p>
+    <a class="button" href="{{ url_for('login') }}">Ingresar al sistema</a>
+</section>
+{% endblock %}

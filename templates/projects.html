@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Gestión de proyectos</h1>
+
+<form method="POST" class="card">
+    <label>Nombre del proyecto</label>
+    <input type="text" name="name" required>
+
+    <label>Descripción</label>
+    <textarea name="description"></textarea>
+
+    <label>Estado</label>
+    <select name="status">
+        <option value="Activo">Activo</option>
+        <option value="Finalizado">Finalizado</option>
+    </select>
+
+    <button type="submit">Crear proyecto</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Proyecto</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for project in projects %}
+        <tr>
+            <td>{{ project.name }}</td>
+            <td>{{ project.description }}</td>
+            <td>{{ project.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

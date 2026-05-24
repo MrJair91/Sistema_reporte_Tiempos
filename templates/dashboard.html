@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Panel administrativo</h1>
+
+<p>Bienvenido, {{ session.get('name') }}. Rol: {{ session.get('role') }}.</p>
+
+<div class="grid">
+    <div class="card metric">
+        <h2>{{ employees_count }}</h2>
+        <p>Empleados</p>
+    </div>
+
+    <div class="card metric">
+        <h2>{{ projects_count }}</h2>
+        <p>Proyectos</p>
+    </div>
+
+    <div class="card metric">
+        <h2>{{ reports_count }}</h2>
+        <p>Reportes</p>
+    </div>
+</div>
+{% endblock %}

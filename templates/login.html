@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Inicio de sesión</h1>
+
+<form method="POST" class="card">
+    <label>Correo electrónico</label>
+    <input type="email" name="email" required placeholder="admin@empresa.com">
+
+    <label>Contraseña</label>
+    <input type="password" name="password" required placeholder="admin123">
+
+    <button type="submit">Ingresar</button>
+</form>
+{% endblock %}
